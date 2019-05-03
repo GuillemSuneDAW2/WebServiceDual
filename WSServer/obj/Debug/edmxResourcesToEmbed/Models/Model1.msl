@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="GimnasAppModelStoreContainer" CdmEntityContainer="GimnasAppEntities">
+    <EntitySetMapping Name="ActivitatDirigidas">
+      <EntityTypeMapping TypeName="GimnasAppModel.ActivitatDirigida">
+        <MappingFragment StoreEntitySet="ActivitatDirigida">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="descripcio" ColumnName="descripcio" />
+          <ScalarProperty Name="tipologia" ColumnName="tipologia" />
+          <ScalarProperty Name="intensitat" ColumnName="intensitat" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="GimnasAppModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="usuari" ColumnName="usuari" />
+          <ScalarProperty Name="contrasenya" ColumnName="contrasenya" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Beneficis">
+      <EntityTypeMapping TypeName="GimnasAppModel.Benefici">
+        <MappingFragment StoreEntitySet="Benefici">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="descripcio" ColumnName="descripcio" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaActivitats">
+      <EntityTypeMapping TypeName="GimnasAppModel.CategoriaActivitat">
+        <MappingFragment StoreEntitySet="CategoriaActivitat">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoriaProfesionals">
+      <EntityTypeMapping TypeName="GimnasAppModel.CategoriaProfesional">
+        <MappingFragment StoreEntitySet="CategoriaProfesional">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Dias">
+      <EntityTypeMapping TypeName="GimnasAppModel.Dia">
+        <MappingFragment StoreEntitySet="Dia">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="dia1" ColumnName="dia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DiaNoHabils">
+      <EntityTypeMapping TypeName="GimnasAppModel.DiaNoHabil">
+        <MappingFragment StoreEntitySet="DiaNoHabil">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="motiu" ColumnName="motiu" />
+          <ScalarProperty Name="horari" ColumnName="horari" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Esdeveniments">
+      <EntityTypeMapping TypeName="GimnasAppModel.Esdeveniment">
+        <MappingFragment StoreEntitySet="Esdeveniment">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="titol" ColumnName="titol" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="descripcio" ColumnName="descripcio" />
+          <ScalarProperty Name="lloc" ColumnName="lloc" />
+          <ScalarProperty Name="tipus" ColumnName="tipus" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Horas">
+      <EntityTypeMapping TypeName="GimnasAppModel.Hora">
+        <MappingFragment StoreEntitySet="Hora">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="hora1" ColumnName="hora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Inscripcions1">
+      <EntityTypeMapping TypeName="GimnasAppModel.Inscripcions1">
+        <MappingFragment StoreEntitySet="Inscripcions1">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Sessio_Id" ColumnName="Sessio_Id" />
+          <ScalarProperty Name="Soci_Id" ColumnName="Soci_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Salas">
+      <EntityTypeMapping TypeName="GimnasAppModel.Sala">
+        <MappingFragment StoreEntitySet="Sala">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="codi" ColumnName="codi" />
+          <ScalarProperty Name="aforament" ColumnName="aforament" />
+          <ScalarProperty Name="descripcio" ColumnName="descripcio" />
+          <ScalarProperty Name="image" ColumnName="image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sessios">
+      <EntityTypeMapping TypeName="GimnasAppModel.Sessio">
+        <MappingFragment StoreEntitySet="Sessio">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Hora_Id" ColumnName="Hora_Id" />
+          <ScalarProperty Name="Dia_Id" ColumnName="Dia_Id" />
+          <ScalarProperty Name="Treballador_Id" ColumnName="Treballador_Id" />
+          <ScalarProperty Name="ActivitatsDirigide_Id" ColumnName="ActivitatsDirigide_Id" />
+          <ScalarProperty Name="Sale_Id" ColumnName="Sale_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Socis">
+      <EntityTypeMapping TypeName="GimnasAppModel.Soci">
+        <MappingFragment StoreEntitySet="Soci">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="cognoms" ColumnName="cognoms" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="correu" ColumnName="correu" />
+          <ScalarProperty Name="naixement" ColumnName="naixement" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Treballadors">
+      <EntityTypeMapping TypeName="GimnasAppModel.Treballador">
+        <MappingFragment StoreEntitySet="Treballador">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="cognoms" ColumnName="cognoms" />
+          <ScalarProperty Name="dni" ColumnName="dni" />
+          <ScalarProperty Name="correu" ColumnName="correu" />
+          <ScalarProperty Name="naixement" ColumnName="naixement" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="CategoriaProfesional_Id" ColumnName="CategoriaProfesional_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SessioViews">
+      <EntityTypeMapping TypeName="GimnasAppModel.SessioView">
+        <MappingFragment StoreEntitySet="SessioView">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="dia" ColumnName="dia" />
+          <ScalarProperty Name="hora" ColumnName="hora" />
+          <ScalarProperty Name="nom" ColumnName="nom" />
+          <ScalarProperty Name="Treballador_Id" ColumnName="Treballador_Id" />
+          <ScalarProperty Name="Sala_Id" ColumnName="Sala_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="BeneficisActivitatsDirigides" TypeName="GimnasAppModel.BeneficisActivitatsDirigides" StoreEntitySet="BeneficisActivitatsDirigides">
+      <EndProperty Name="ActivitatDirigida">
+        <ScalarProperty Name="Id" ColumnName="ActivitatsDirigides_Id" />
+      </EndProperty>
+      <EndProperty Name="Benefici">
+        <ScalarProperty Name="Id" ColumnName="Benefici_Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

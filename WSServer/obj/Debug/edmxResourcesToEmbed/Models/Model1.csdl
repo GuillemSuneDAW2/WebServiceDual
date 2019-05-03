@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="GimnasAppModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ActivitatDirigida">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcio" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="tipologia" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="intensitat" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Category_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sessios" Relationship="Self.FK_ActivitatsDirigidesSessio" FromRole="ActivitatDirigida" ToRole="Sessio" />
+    <NavigationProperty Name="CategoriaActivitat" Relationship="Self.FK_CategoriesActivitatsDirigides" FromRole="ActivitatDirigida" ToRole="CategoriaActivitat" />
+    <NavigationProperty Name="Beneficis" Relationship="Self.BeneficisActivitatsDirigides" FromRole="ActivitatDirigida" ToRole="Benefici" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="usuari" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="contrasenya" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Benefici">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="descripcio" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="ActivitatDirigidas" Relationship="Self.BeneficisActivitatsDirigides" FromRole="Benefici" ToRole="ActivitatDirigida" />
+  </EntityType>
+  <EntityType Name="CategoriaActivitat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ActivitatDirigidas" Relationship="Self.FK_CategoriesActivitatsDirigides" FromRole="CategoriaActivitat" ToRole="ActivitatDirigida" />
+  </EntityType>
+  <EntityType Name="CategoriaProfesional">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Treballadors" Relationship="Self.FK_CategoriaProfesionalTreballadors" FromRole="CategoriaProfesional" ToRole="Treballador" />
+  </EntityType>
+  <EntityType Name="Dia">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="dia1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Sessios" Relationship="Self.FK_DiaSesio" FromRole="Dia" ToRole="Sessio" />
+  </EntityType>
+  <EntityType Name="DiaNoHabil">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="data" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="motiu" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="horari" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Esdeveniment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="titol" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="data" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="descripcio" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="lloc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tipus" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Hora">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="hora1" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Sessios" Relationship="Self.FK_HoraSesio" FromRole="Hora" ToRole="Sessio" />
+  </EntityType>
+  <EntityType Name="Inscripcions1">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Sessio_Id" Type="Int32" Nullable="false" />
+    <Property Name="Soci_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Sessio" Relationship="Self.FK_SessioInscripcions" FromRole="Inscripcions1" ToRole="Sessio" />
+    <NavigationProperty Name="Soci" Relationship="Self.FK_SociInscripcions" FromRole="Inscripcions1" ToRole="Soci" />
+  </EntityType>
+  <EntityType Name="Sala">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codi" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="aforament" Type="Int16" Nullable="false" />
+    <Property Name="descripcio" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Sessios" Relationship="Self.FK_SalesSessio" FromRole="Sala" ToRole="Sessio" />
+  </EntityType>
+  <EntityType Name="Sessio">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Hora_Id" Type="Int32" Nullable="false" />
+    <Property Name="Dia_Id" Type="Int32" Nullable="false" />
+    <Property Name="Treballador_Id" Type="Int32" Nullable="false" />
+    <Property Name="ActivitatsDirigide_Id" Type="Int32" Nullable="false" />
+    <Property Name="Sale_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ActivitatDirigida" Relationship="Self.FK_ActivitatsDirigidesSessio" FromRole="Sessio" ToRole="ActivitatDirigida" />
+    <NavigationProperty Name="Dia" Relationship="Self.FK_DiaSesio" FromRole="Sessio" ToRole="Dia" />
+    <NavigationProperty Name="Hora" Relationship="Self.FK_HoraSesio" FromRole="Sessio" ToRole="Hora" />
+    <NavigationProperty Name="Inscripcions1" Relationship="Self.FK_SessioInscripcions" FromRole="Sessio" ToRole="Inscripcions1" />
+    <NavigationProperty Name="Sala" Relationship="Self.FK_SalesSessio" FromRole="Sessio" ToRole="Sala" />
+    <NavigationProperty Name="Treballador" Relationship="Self.FK_TreballadorsSessio" FromRole="Sessio" ToRole="Treballador" />
+  </EntityType>
+  <EntityType Name="Soci">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cognoms" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dni" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="naixement" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Inscripcions1" Relationship="Self.FK_SociInscripcions" FromRole="Soci" ToRole="Inscripcions1" />
+  </EntityType>
+  <EntityType Name="Treballador">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="cognoms" Type="String" MaxLength="35" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dni" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="correu" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="naixement" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="image" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CategoriaProfesional_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="CategoriaProfesional" Relationship="Self.FK_CategoriaProfesionalTreballadors" FromRole="Treballador" ToRole="CategoriaProfesional" />
+    <NavigationProperty Name="Sessios" Relationship="Self.FK_TreballadorsSessio" FromRole="Treballador" ToRole="Sessio" />
+  </EntityType>
+  <EntityType Name="SessioView">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="dia" />
+      <PropertyRef Name="hora" />
+      <PropertyRef Name="nom" />
+      <PropertyRef Name="Treballador_Id" />
+      <PropertyRef Name="Sala_Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="dia" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hora" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nom" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Treballador_Id" Type="Int32" Nullable="false" />
+    <Property Name="Sala_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ActivitatsDirigidesSessio">
+    <End Role="ActivitatDirigida" Type="Self.ActivitatDirigida" Multiplicity="1" />
+    <End Role="Sessio" Type="Self.Sessio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActivitatDirigida">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sessio">
+        <PropertyRef Name="ActivitatsDirigide_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoriesActivitatsDirigides">
+    <End Role="CategoriaActivitat" Type="Self.CategoriaActivitat" Multiplicity="1" />
+    <End Role="ActivitatDirigida" Type="Self.ActivitatDirigida" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaActivitat">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ActivitatDirigida">
+        <PropertyRef Name="Category_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CategoriaProfesionalTreballadors">
+    <End Role="CategoriaProfesional" Type="Self.CategoriaProfesional" Multiplicity="1" />
+    <End Role="Treballador" Type="Self.Treballador" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CategoriaProfesional">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Treballador">
+        <PropertyRef Name="CategoriaProfesional_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DiaSesio">
+    <End Role="Dia" Type="Self.Dia" Multiplicity="1" />
+    <End Role="Sessio" Type="Self.Sessio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Dia">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sessio">
+        <PropertyRef Name="Dia_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoraSesio">
+    <End Role="Hora" Type="Self.Hora" Multiplicity="1" />
+    <End Role="Sessio" Type="Self.Sessio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Hora">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sessio">
+        <PropertyRef Name="Hora_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SessioInscripcions">
+    <End Role="Sessio" Type="Self.Sessio" Multiplicity="1" />
+    <End Role="Inscripcions1" Type="Self.Inscripcions1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sessio">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inscripcions1">
+        <PropertyRef Name="Sessio_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SociInscripcions">
+    <End Role="Soci" Type="Self.Soci" Multiplicity="1" />
+    <End Role="Inscripcions1" Type="Self.Inscripcions1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Soci">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Inscripcions1">
+        <PropertyRef Name="Soci_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SalesSessio">
+    <End Role="Sala" Type="Self.Sala" Multiplicity="1" />
+    <End Role="Sessio" Type="Self.Sessio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sala">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sessio">
+        <PropertyRef Name="Sale_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreballadorsSessio">
+    <End Role="Treballador" Type="Self.Treballador" Multiplicity="1" />
+    <End Role="Sessio" Type="Self.Sessio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Treballador">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sessio">
+        <PropertyRef Name="Treballador_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="BeneficisActivitatsDirigides">
+    <End Role="ActivitatDirigida" Type="Self.ActivitatDirigida" Multiplicity="*" />
+    <End Role="Benefici" Type="Self.Benefici" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="GimnasAppEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ActivitatDirigidas" EntityType="Self.ActivitatDirigida" />
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="Beneficis" EntityType="Self.Benefici" />
+    <EntitySet Name="CategoriaActivitats" EntityType="Self.CategoriaActivitat" />
+    <EntitySet Name="CategoriaProfesionals" EntityType="Self.CategoriaProfesional" />
+    <EntitySet Name="Dias" EntityType="Self.Dia" />
+    <EntitySet Name="DiaNoHabils" EntityType="Self.DiaNoHabil" />
+    <EntitySet Name="Esdeveniments" EntityType="Self.Esdeveniment" />
+    <EntitySet Name="Horas" EntityType="Self.Hora" />
+    <EntitySet Name="Inscripcions1" EntityType="Self.Inscripcions1" />
+    <EntitySet Name="Salas" EntityType="Self.Sala" />
+    <EntitySet Name="Sessios" EntityType="Self.Sessio" />
+    <EntitySet Name="Socis" EntityType="Self.Soci" />
+    <EntitySet Name="Treballadors" EntityType="Self.Treballador" />
+    <EntitySet Name="SessioViews" EntityType="Self.SessioView" />
+    <AssociationSet Name="FK_ActivitatsDirigidesSessio" Association="Self.FK_ActivitatsDirigidesSessio">
+      <End Role="ActivitatDirigida" EntitySet="ActivitatDirigidas" />
+      <End Role="Sessio" EntitySet="Sessios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoriesActivitatsDirigides" Association="Self.FK_CategoriesActivitatsDirigides">
+      <End Role="CategoriaActivitat" EntitySet="CategoriaActivitats" />
+      <End Role="ActivitatDirigida" EntitySet="ActivitatDirigidas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CategoriaProfesionalTreballadors" Association="Self.FK_CategoriaProfesionalTreballadors">
+      <End Role="CategoriaProfesional" EntitySet="CategoriaProfesionals" />
+      <End Role="Treballador" EntitySet="Treballadors" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DiaSesio" Association="Self.FK_DiaSesio">
+      <End Role="Dia" EntitySet="Dias" />
+      <End Role="Sessio" EntitySet="Sessios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoraSesio" Association="Self.FK_HoraSesio">
+      <End Role="Hora" EntitySet="Horas" />
+      <End Role="Sessio" EntitySet="Sessios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SessioInscripcions" Association="Self.FK_SessioInscripcions">
+      <End Role="Sessio" EntitySet="Sessios" />
+      <End Role="Inscripcions1" EntitySet="Inscripcions1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SociInscripcions" Association="Self.FK_SociInscripcions">
+      <End Role="Soci" EntitySet="Socis" />
+      <End Role="Inscripcions1" EntitySet="Inscripcions1" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SalesSessio" Association="Self.FK_SalesSessio">
+      <End Role="Sala" EntitySet="Salas" />
+      <End Role="Sessio" EntitySet="Sessios" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreballadorsSessio" Association="Self.FK_TreballadorsSessio">
+      <End Role="Treballador" EntitySet="Treballadors" />
+      <End Role="Sessio" EntitySet="Sessios" />
+    </AssociationSet>
+    <AssociationSet Name="BeneficisActivitatsDirigides" Association="Self.BeneficisActivitatsDirigides">
+      <End Role="ActivitatDirigida" EntitySet="ActivitatDirigidas" />
+      <End Role="Benefici" EntitySet="Beneficis" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="dc75d344abcc40fda557384fc51f258e" Name="Diagram1">
+        <EntityTypeShape EntityType="GimnasAppModel.ActivitatDirigida" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Admin" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Benefici" Width="1.5" PointX="5.25" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.CategoriaActivitat" Width="1.5" PointX="0.75" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.CategoriaProfesional" Width="1.5" PointX="3.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Dia" Width="1.5" PointX="6" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.DiaNoHabil" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Esdeveniment" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Hora" Width="1.5" PointX="6" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Inscripcions1" Width="1.5" PointX="10.5" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Sala" Width="1.5" PointX="6" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Sessio" Width="1.5" PointX="8.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Soci" Width="1.5" PointX="8.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.Treballador" Width="1.5" PointX="6" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="GimnasAppModel.SessioView" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="GimnasAppModel.FK_ActivitatsDirigidesSessio" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_CategoriesActivitatsDirigides" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_CategoriaProfesionalTreballadors" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_DiaSesio" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_HoraSesio" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_SessioInscripcions" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_SociInscripcions" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_SalesSessio" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.FK_TreballadorsSessio" ManuallyRouted="false" />
+        <AssociationConnector Association="GimnasAppModel.BeneficisActivitatsDirigides" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
